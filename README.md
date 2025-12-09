@@ -54,22 +54,16 @@ for r in results:
 Core dependencies include:
 
 * `langchain-openai`
-* `tqdm`
 * `pytest` (optional for testing)
 
 ## Installation
 
-Install using pip:
+Install using `uv`:
 
 ```bash
-pip install -e .
+uv sync
 ```
 
-or for development:
-
-```bash
-pip install -r requirements.txt
-```
 
 ## Design Notes
 
