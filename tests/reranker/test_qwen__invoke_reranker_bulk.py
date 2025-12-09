@@ -8,6 +8,7 @@ from qwen_reranker.reranker.qwen import QwenReranker
 
 class FakeResponse:
     """Simulated LLM response."""
+
     def __init__(self, text="yes"):
         self.content = text
         self.response_metadata = {}
@@ -31,11 +32,7 @@ def test_invoke_reranker_bulk_success(reranker: QwenReranker):
     ]
 
     # Mock response order: yes → no → yes
-    responses = [
-        FakeResponse("yes"),
-        FakeResponse("no"),
-        FakeResponse("yes")
-    ]
+    responses = [FakeResponse("yes"), FakeResponse("no"), FakeResponse("yes")]
 
     # The mocked invoke will return responses in sequence
     reranker._reranker_llm.invoke.side_effect = responses

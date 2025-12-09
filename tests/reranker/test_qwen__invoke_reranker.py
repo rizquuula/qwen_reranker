@@ -8,6 +8,7 @@ from qwen_reranker.reranker.qwen import QwenReranker
 
 class FakeResponse:
     """Simulated LLM response for tests."""
+
     def __init__(self, text="yes", yes_logprob=-0.1, no_logprob=-2.0):
         self.content = text
         self.response_metadata = {
@@ -28,7 +29,7 @@ class FakeResponse:
 def reranker():
     """Create a QwenReranker instance with mocked LLM."""
     r = QwenReranker(base_url="http://localhost", model="dummy", api_key="fake")
-    r._reranker_llm = MagicMock()   # Stub actual LLM calls
+    r._reranker_llm = MagicMock()  # Stub actual LLM calls
     return r
 
 
@@ -79,5 +80,3 @@ def test_invoke_reranker_fallback_no_logprobs(reranker: QwenReranker):
 
     # Assert
     assert result["reranker_score"] == 1.0  # fallback to yes
-
-
