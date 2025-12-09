@@ -9,6 +9,6 @@ wheels/
 # Virtual environments
 .venv
 
-
+main.py
 .ruff_cache/
 .vscode/
